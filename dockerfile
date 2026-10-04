@@ -1,3 +1,7 @@
+# test
+FROM build AS test
+RUN go test ./...
+
 # build stage
 FROM golang:1.22-alpine AS build
 ARG VERSION=dev
