@@ -4,6 +4,7 @@ ARG VERSION=dev
 WORKDIR /src
 COPY go.mod ./
 COPY *.go ./
+RUN go mod download
 RUN CGO_ENABLED=0 GOOS=linux go build -trimpath \
     -ldflags="-s -w -X main.version=${VERSION}" -o /out/app .
 
